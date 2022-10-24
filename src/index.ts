@@ -1,8 +1,7 @@
-import path from "path";
 import { Command } from "commander";
 import packageJsonData from "../package.json" assert { type: "json" };
-import getIP from "./get-public-ip";
-import folderPrint from "./folder-print";
+import getIP from "./modules/get-ip";
+import folderPrint from "./modules/folder-print";
 
 const { version, name } = packageJsonData;
 
@@ -11,11 +10,14 @@ const { version, name } = packageJsonData;
 const program = new Command(name);
 program
   .alias("db")
-  .description("Using the CLI to generate the tree structure of the directory")
+  .description(
+    "A super powerful cli tool-set to quickly do some common operations in the terminal."
+  )
   .version(version, "-v, --version, -V");
 program
   .command("ip")
   .description("Get the local external network i p address")
+  .option("-i, --intranet", "Get ip for intranet or extranet")
   .action(getIP);
 program
   .command("folder-print")
@@ -29,5 +31,3 @@ program
   .description("Print directory structure")
   .action(folderPrint);
 program.parse();
-
-// getIP();

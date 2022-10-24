@@ -1,6 +1,6 @@
 {
   "name": "dev-boy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
