@@ -23,9 +23,14 @@ const folderName = `🌸 ${
 const colorFolderName = `🌸 ${chalk.greenBright(
   __dirname.split("/")[__dirname.split("/").length - 1]
 )} 🌸\n`;
-
+// 文件内容
 let content = folderName;
+// 带样式的内容
 let colorContent = colorFolderName;
+// 遍历深度
+let depthNum: number = 10;
+// 是否打印
+let isPrint: boolean = false;
 
 // 生成指定的连接符
 function generateLine(index, length) {
@@ -43,27 +48,6 @@ function generateSpace(num) {
     space += `│   `;
   }
   return space;
-}
-// 遍历深度
-let depthNum: number = 10;
-// 是否打印
-let isPrint: boolean = false;
-//
-export default function folderPrint(options) {
-  console.log("🚀🚀🚀 / options", options);
-  const { depth, print } = options;
-  depthNum = depth;
-  isPrint = print;
-
-  printTree(__dirname, 0);
-  if (isPrint) {
-    // console.log(content);
-    content = `\`\`\`sh \n${content}\`\`\``;
-    fs.writeFileSync("folder-tree.md", content, "utf8");
-    console.log("✅ 已将目录结构生成到 folder-tree.md 文件中");
-  } else {
-    console.log(colorContent);
-  }
 }
 
 // 遍历文件夹，打印目录结构
@@ -117,4 +101,22 @@ export function printTree(dir = __dirname, spaceNum) {
       printTree(filePath, spaceNum + 1);
     }
   });
+}
+
+// 打印目录结构
+export default function folderPrint(options) {
+  console.log("🚀🚀🚀 / options", options);
+  const { depth, print } = options;
+  depthNum = depth;
+  isPrint = print;
+
+  printTree(__dirname, 0);
+  if (isPrint) {
+    // console.log(content);
+    content = `\`\`\`sh \n${content}\`\`\``;
+    fs.writeFileSync("folder-tree.md", content, "utf8");
+    console.log("✅ 已将目录结构生成到 folder-tree.md 文件中");
+  } else {
+    console.log(colorContent);
+  }
 }

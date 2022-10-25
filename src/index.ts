@@ -2,6 +2,7 @@ import { Command } from "commander";
 import packageJsonData from "../package.json" assert { type: "json" };
 import getIP from "./modules/get-ip";
 import folderPrint from "./modules/folder-print";
+import getSystemInfo from "./modules/get-system-info";
 
 const { version, name } = packageJsonData;
 
@@ -19,6 +20,11 @@ program
   .description("Get the local external network i p address")
   .option("-i, --intranet", "Get ip for intranet or extranet")
   .action(getIP);
+program
+  .command("system")
+  .description("Get system information ")
+  .option("-v, --visual", "Rendering in a visual way")
+  .action(getSystemInfo);
 program
   .command("folder-print")
   .alias("fp")
