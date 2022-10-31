@@ -1,6 +1,6 @@
 {
   "name": "dev-boy",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -8,7 +8,8 @@
     "build": "rollup -c"
   },
   "bin": {
-    "db": "./bin/cli.js"
+    "db": "./bin/cli.js",
+    "dev-boy": "./bin/cli.js"
   },
   "main": "index.js",
   "author": "",

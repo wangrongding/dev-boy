@@ -4,7 +4,6 @@ import typescript2 from "rollup-plugin-typescript2";
 import del from "rollup-plugin-delete";
 // import pkg from "./package.json" assert { type: "json" };
 
-
 // const external = Object.keys(pkg.dependencies || "");
 // const globals = external.reduce((prev, current) => {
 //   const newPrev = prev;
@@ -23,14 +22,18 @@ const defaultConfig = {
   },
   // external,
   plugins: [
-    typescript2(), // 使用typescript2插件
-    json(), // 解析json文件
-    del({
-      targets: "lib/*",
-      verbose: true,
-    }), // 清理输出目录
-    terser(), // 压缩代码
+    // 使用typescript2插件
+    typescript2(),
+    // 解析json文件
+    json(),
+    // 清理输出目录
+    // del({
+    //   targets: "lib/*",
+    //   // verbose: true, // 打印删除的文件
+    // }),
 
+    // 压缩代码
+    // terser(),
     // typescript2({
     //   // exclude: "node_modules/**",
     //   // useTsconfigDeclarationDir: true,

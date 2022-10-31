@@ -3,6 +3,7 @@ import packageJsonData from "../package.json" assert { type: "json" };
 import getIP from "./modules/get-ip";
 import folderPrint from "./modules/folder-print";
 import getSystemInfo from "./modules/get-system-info";
+import getTimeNode from "./modules/time-node";
 
 const { version, name } = packageJsonData;
 
@@ -25,6 +26,10 @@ program
   .description("Get system information ")
   .option("-v, --visual", "Rendering in a visual way")
   .action(getSystemInfo);
+program
+  .command("time")
+  .description("Get system information ")
+  .action(getTimeNode);
 program
   .command("folder-print")
   .alias("fp")

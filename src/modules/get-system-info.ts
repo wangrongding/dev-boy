@@ -94,6 +94,16 @@ export default function getSystemInfo() {
     ).toFixed(2)}%`
   );
 
+  // console.log(process.memoryUsage());
+  // console.log(` - 内存总量：${dealMem(process.memoryUsage().heapTotal)}`);
+  // console.log(` - 空闲内存量：${dealMem(process.memoryUsage().heapUsed)}`);
+  // console.log(
+  //   ` - 内存使用占比：${Number(
+  //     (1 - process.memoryUsage().heapUsed / process.memoryUsage().heapTotal) *
+  //       100
+  //   ).toFixed(2)}%`
+  // );
+
   cpuUsage((perc) => {
     console.log(` - CPU使用占比：${Number(perc * 100).toFixed(2)}%`);
   });
