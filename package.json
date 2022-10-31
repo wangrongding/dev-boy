@@ -1,6 +1,7 @@
 {
   "name": "dev-boy",
-  "version": "0.0.5",
+  "version": "0.0.6",
+  "description": "🛠️An awesome terminal cli toolkit.(小而美的 cli 工具包)🧰",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,10 +13,20 @@
     "dev-boy": "./bin/cli.js"
   },
   "main": "index.js",
-  "author": "",
+  "keywords": [
+    "cli",
+    "dev",
+    "terminal",
+    "file-tree",
+    "dev-boy"
+  ],
+  "author": "荣顶",
   "license": "ISC",
-  "description": "",
-  "keywords": [],
+  "homepage": "https://github.com/wangrongding/dev-boy/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangrongding/dev-boy.git"
+  },
   "dependencies": {
     "axios": "^1.1.3",
     "chalk": "^5.1.2",
