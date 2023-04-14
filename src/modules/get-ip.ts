@@ -17,10 +17,10 @@ export default async function getIP(options) {
 // 获取内网ip
 export function getIntranetIp(): string {
   const interfaces = os.networkInterfaces();
-  for (var devName in interfaces) {
-    var iface = interfaces[devName]!;
-    for (var i = 0; i < iface.length; i++) {
-      var alias = iface[i];
+  for (let devName in interfaces) {
+    let iface = interfaces[devName]!;
+    for (let i = 0; i < iface.length; i++) {
+      let alias = iface[i];
       if (
         alias.family === "IPv4" &&
         alias.address !== "127.0.0.1" &&
@@ -30,7 +30,7 @@ export function getIntranetIp(): string {
         console.log(`🌐 mac: ${chalk.green(alias.mac)}`);
         console.log(`🌐 netmask: ${chalk.green(alias.netmask)} \n`);
 
-        return alias.address;
+        // return alias.address;
       }
     }
   }

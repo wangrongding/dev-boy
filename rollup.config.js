@@ -1,7 +1,7 @@
+import chokidar from "chokidar";
+import { spawn } from "child_process";
 import json from "@rollup/plugin-json";
-import { terser } from "rollup-plugin-terser";
 import typescript2 from "rollup-plugin-typescript2";
-import del from "rollup-plugin-delete";
 // import pkg from "./package.json" assert { type: "json" };
 
 // const external = Object.keys(pkg.dependencies || "");
@@ -10,6 +10,20 @@ import del from "rollup-plugin-delete";
 //   newPrev[current] = current;
 //   return newPrev;
 // }, {});
+
+function buildEndCallback() {
+  return {
+    name: "buildEndCallback",
+    buildEnd() {
+      console.log("🚗🚗🚗 watching...");
+      // 开发环境下，监听 lib 目录下的文件变化，重新构建
+      chokidar.watch("./lib").on("change", () => {
+        // 重新 sudo npm link
+        spawn("sudo", ["npm", "link"]);
+      });
+    },
+  };
+}
 
 const defaultConfig = {
   input: "./src/index.ts",
@@ -26,6 +40,9 @@ const defaultConfig = {
     typescript2(),
     // 解析json文件
     json(),
+    // 开发环境下监听文件变化
+    process.env.ROLLUP_WATCH && buildEndCallback(),
+
     // 清理输出目录
     // del({
     //   targets: "lib/*",
