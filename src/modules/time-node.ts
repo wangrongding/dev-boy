@@ -20,10 +20,10 @@ const minutes = new Date().getMinutes();
 // 今天是一年中的第几天
 const dayOfYear = Math.floor(
   (now - new Date(new Date().getFullYear(), 0, 0).getTime()) /
-    1000 /
-    60 /
-    60 /
-    24
+  1000 /
+  60 /
+  60 /
+  24
 );
 // 剩余天数
 const remainingDays = 365 - dayOfYear;
@@ -105,7 +105,7 @@ export async function getRecentHoliday() {
 export default function getTimeNode() {
   const { timeProgressBar, timeProgressStr } = printTimeProgress();
   console.log(
-    `\n🌸现在是${year}年${month}月${date}日 ${hours}:${minutes} 星期${day}`
+    `\n${year}年${month}月${date}日 ${hours}:${minutes} 星期${day} 🌸`
   );
   console.log(
     `\n${chalk.blue(year)}(${timeProgressStr}) 已过${chalk.red(
