@@ -104,9 +104,7 @@ export async function getRecentHoliday() {
 
 export default function getTimeNode() {
   const { timeProgressBar, timeProgressStr } = printTimeProgress();
-  console.log(
-    `\n${year}年${month}月${date}日 ${hours}:${minutes} 星期${day} 🌸`
-  );
+  // console.log(`\n${year}年${month}月${date}日 ${hours}:${minutes} 星期${day} 🌸`);
   console.log(
     `\n${chalk.blue(year)}(${timeProgressStr}) 已过${chalk.red(
       dayOfYear
